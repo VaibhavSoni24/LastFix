@@ -97,9 +97,15 @@ def deterministic_extract(text_input: str) -> Dict[str, Any]:
         situation = "During gaming"
 
     # Split into sentences or clauses
-    clauses = re.split(r"[.;\n]| then | and then | but ", text_input)
+    clauses = re.split(r"[.;\n]| then | and then | but |, then ", text_input)
     attempts = []
     step = 1
+
+    action_stems = [
+        "restart", "reboot", "reset", "reinstall", "delet", "unplug", "replug",
+        "chang", "reconnect", "ran", "run", "execut", "updat", "clear", "tri",
+        "toggl", "power", "switch", "detect", "install"
+    ]
 
     for clause in clauses:
         c = clause.strip()
@@ -107,13 +113,11 @@ def deterministic_extract(text_input: str) -> Dict[str, Any]:
         if not c or len(c) < 5:
             continue
         
-        # Check if clause represents an action
-        is_action = any(verb in c_lower for verb in [
-            "restart", "reboot", "reset", "reinstall", "deleted", "unplug", "replug",
-            "changed", "reconnected", "ran", "executed", "updated", "cleared", "tried"
-        ])
-        
-        if is_action:
+        # Check if clause represents an action or an attempt outcome
+        has_action_verb = any(stem in c_lower for stem in action_stems)
+        has_outcome_word = any(w in c_lower for w in ["worked", "fixed", "failed", "didn't", "did not", "resolved", "helped"])
+
+        if has_action_verb or has_outcome_word:
             outcome = "unknown"
             if any(ok in c_lower for ok in ["worked", "fixed", "came back", "resolved", "started working", "successful"]):
                 outcome = "worked"
@@ -121,9 +125,12 @@ def deterministic_extract(text_input: str) -> Dict[str, Any]:
                 outcome = "failed"
             
             # Clean action summary
-            action_clean = re.sub(r"(i |and |then |after that |finally )", "", c, flags=re.IGNORECASE).strip()
+            action_clean = re.sub(r"^(i |and |then |after that |finally )+", "", c, flags=re.IGNORECASE).strip()
+            # Remove trailing outcome phrases for clean action title
+            action_title = re.sub(r"( and that (worked|failed)| which (worked|failed)| (worked|failed))$", "", action_clean, flags=re.IGNORECASE).strip()
+            
             attempts.append({
-                "action": action_clean[:100].capitalize(),
+                "action": action_title[:100].capitalize(),
                 "outcome": outcome,
                 "notes": c,
                 "step_order": step
