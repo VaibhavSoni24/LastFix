@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <rect width="48" height="48" rx="12" fill="#0E0E14"/>
+  <rect x="0.5" y="0.5" width="47" height="47" rx="11.5" stroke="rgba(255, 255, 255, 0.12)"/>
+  
+  <!-- Outer Circuit Ring Loop -->
+  <path d="M24 10C16.268 10 10 16.268 10 24C10 31.732 16.268 38 24 38C30.5 38 35.9 33.6 37.5 27.5" 
+        stroke="url(#silverGradient)" stroke-width="2.5" stroke-linecap="round"/>
+        
+  <!-- Precision Troubleshooting Wrench / Checkmark Hybrid -->
+  <path d="M18 24.5L22.5 29L36 15.5" 
+        stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        
+  <!-- Dynamic Pulse Node -->
+  <circle cx="24" cy="10" r="2.5" fill="#3B82F6"/>
+
+  <defs>
+    <linearGradient id="silverGradient" x1="10" y1="10" x2="38" y2="38" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#EDEDF2"/>
+      <stop offset="50%" stop-color="#8E8EA0"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+  </defs>
+</svg>
