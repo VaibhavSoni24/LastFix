@@ -104,9 +104,9 @@ LastFix records your empirical troubleshooting history:
 ### 1. Prerequisites
 - **Python**: 3.10+
 - **Node.js**: 18+ (tested on Node 24)
-- **Ollama** (optional for local LLM inference): [ollama.com](https://ollama.com)
+- **Ollama** (for local LLM inference): [ollama.com](https://ollama.com)
 
-### 2. (Optional) Run Gemma 3 4B Locally
+### 2. Run Gemma 3 4B Locally
 ```bash
 ollama run gemma3:4b
 ```
