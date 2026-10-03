@@ -1,11 +1,11 @@
 # LastFix — Master Implementation & Architectural Blueprint
 
-> **"You fixed it before. You just forgot how."**  
-> *A high-precision personal troubleshooting memory system powered by local open-weight AI (Gemma 3 4B via Ollama) and an ultra-modern, dark-themed, craft-focused WebGL/Motion frontend.*
+> **"LastFix doesn't tell you how to fix a problem. It remembers how you fixed it."**  
+> *Every time something breaks, LastFix records what you tried, what failed, and what worked. When the same problem happens again, it retrieves your previous experience instead of making you start from zero. And because the memory lives locally with Gemma, your troubleshooting history can stay on your device.*
 
 ---
 
-## 1. Project Overview & Complete `convo.txt` Summary
+## 1. Project Overview & Hacktoberfest 2026 Genesis
 
 ### 1.1 Context & Hacktoberfest 2026 Genesis
 - **Event**: Hacktoberfest 2026 Open-Source AI Weekend Challenge ("Build for a Friend") hosted on the DEV Community in partnership with Google DeepMind (Gemma), Render, TabPFN, DigitalOcean, MongoDB Atlas, Sentry, and others.
@@ -13,36 +13,41 @@
 - **Core Requirements**:
   1. Brand-new project built from scratch during the challenge window.
   2. Open-source / open-weight AI at the core (Gemma 3 4B via local Ollama inference).
-  3. Solves a genuine, tangible problem for a friend, family member, or colleague.
+  3. Solves a genuine, tangible problem for a friend or loved one.
   4. Working demo: high-resolution screen-recorded walkthrough or live deployment.
-  5. Public GitHub repository with clean history, structured documentation, and open source ethos.
-  6. Comprehensive DEV Community article written using the official template + `#hf26challenge`, articulating why open-source and local AI matters (privacy, offline resilience, sovereignty).
+  5. Public GitHub repository with clean history, structured documentation, and open source ethos (MIT License).
+  6. Comprehensive DEV Community article written using the official template + `#hf26challenge`, articulating why open-source and local AI matters.
 
-### 1.2 The Core Problem: Why Traditional Solutions Fail
-Every person constantly encounters friction with technology, tools, and everyday systems:
-- *"My laptop Wi-Fi disappeared after sleep. What did I do last month to fix it?"*
-- *"My second monitor isn't detected over USB-C. Which display setting or cable sequence worked?"*
-- *"My printer went offline in Windows. Did restarting work, or did I have to delete the port?"*
-- *"Which specific command resolved that npm peer dependency crash?"*
+### 1.2 The Human Story: Solving a Real Problem for Tilak & Saumya
+The Hacktoberfest theme is **"Build for a Friend"**. LastFix is built directly around real recurring pain points experienced by:
+- **Tilak Khatoria** (Friend): Constantly plagued by laptop display detection glitches over USB-C/HDMI and recurring Git merge conflict cascades. Every time it happens, he spends 15–20 minutes fruitlessly retrying restart sequences that never worked before.
+- **Saumya Soni** (Sister): Frequently encounters Wi-Fi disappearing after Windows wakes from sleep and printer connection drops. Every time, she repeats the same failed reboot attempts before finally remembering that resetting the network adapter was the only thing that worked.
 
-When this happens, people make two critical errors:
-1. **They search Google or ask generic AI bots**: Google returns SEO-spam articles with 15 generic tips. Generic AI chatbots hallucinate or spit out long, generic lists of troubleshooting steps that don't reflect the user's specific operating system, hardware, or past experience.
-2. **They repeat failed steps**: They spend 20 minutes restarting the laptop, replugging cables, and clearing caches—actions that *already failed* the last three times they had this exact problem.
+LastFix is built for them: when technology fails, instead of starting from zero or wading through generic search results, they open LastFix and immediately recover what *they* actually did to fix it.
 
-### 1.3 The LastFix Solution
-**LastFix is NOT a generic troubleshooting chatbot.** It is a **Personal Troubleshooting Memory System**. It records:
-- **The Incident**: What broke and when.
+### 1.3 The Core Problem: Why Traditional Solutions Fail
+When technical problems strike, users make two consistent errors:
+1. **Searching Google or Generic AI**: Search engines return SEO-spam articles with 15 generic tips. Generic AI chatbots hallucinate or spit out encyclopedic checklists that don't reflect the user's specific OS, hardware revision, or home network topology.
+2. **Repeating Failed Steps**: Users spend 20 minutes restarting laptops, replugging cables, and clearing caches—actions that *already failed* the last three times they encountered the issue.
+
+### 1.4 The LastFix Solution
+LastFix is **NOT** a generic troubleshooting chatbot. It is a **Personal Troubleshooting Memory System**. It records:
+- **The Incident & Context**: What broke, when, and the environment (Device, OS, Situation, Subsystem).
 - **The Attempts Timeline**: Every action taken, explicitly cataloged as `worked`, `failed`, or `unknown`.
-- **The DO NOT REPEAT Engine**: Prominently warns the user against retrying actions that previously failed.
+- **Evidence-Based "Previously Tried" Analysis**: Empirically distinguishes actions that failed in past incidents from the proven fix, warning the user against blindly retrying steps that yielded no results last time.
 - **The Confirmed Fix**: The exact intervention that actually resolved the issue.
+- **Evidence Trail ("Why am I seeing this?")**: Full transparency showing matched keywords and contextual attributes.
 
-### 1.4 Why Local Open-Weight AI (Gemma 3 4B)?
-- **Privacy & Data Sovereignty**: Troubleshooting histories contain sensitive personal telemetry—internal IP addresses, device serials, company software names, home router settings, and personal habits. Sending this to closed cloud APIs is a privacy violation.
-- **Offline Reliability**: When your Wi-Fi, Ethernet, or modem is broken, cloud AI assistants are unreachable. A local AI running via Ollama on localhost works completely offline.
+### 1.5 Why Local Open-Weight AI (Gemma 3 4B)?
+- **Local Data Residency**: Cloud AI can require personal troubleshooting data—internal IP addresses, device serials, company software names, home router settings, and personal habits—to leave the user's device. LastFix keeps this memory local by default.
+- **True Offline Resilience**: When your Wi-Fi, Ethernet, or modem drops, cloud AI is completely unreachable. LastFix runs Gemma 3 4B locally via Ollama on localhost and operates 100% offline.
 - **Precise 3-Stage AI Role**:
-  1. *Memory Extraction*: Converts natural language ("My Wi-Fi vanished, reboot failed, reset adapter fixed it") into strictly typed JSON incidents and attempts.
-  2. *Query Understanding*: Expands colloquial problem descriptions ("screen is blank") into hardware/OS search terms (`monitor`, `display`, `HDMI`, `DP`, `graphics`).
-  3. *Memory Reasoning*: Synthesizes retrieved historical memories, evaluates confidence, flags previous failures under "DO NOT REPEAT", and presents the proven fix.
+  1. *Memory Extraction*: Converts natural language into structured JSON incidents, inferring context (OS, device, trigger) without tedious manual forms.
+  2. *Query Understanding*: Expands colloquial problem descriptions into technical subsystem keywords.
+  3. *Memory Reasoning*: Synthesizes retrieved historical memories, evaluates multiple past fixes, and presents evidence-based recommendations.
+
+### 1.6 Nuanced Originality Statement
+*"I couldn't find a tool focused specifically on remembering my own troubleshooting attempts and recovering the fix that worked."* LastFix focuses specifically on personal procedural memory and empirical attempt histories.
 
 ---
 
@@ -51,6 +56,7 @@ When this happens, people make two critical errors:
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
 │                        LASTFIX CLIENT (Vite + React)                   │
+│                         (100% Self-Contained Offline)                  │
 │                                                                        │
 │   ┌─────────────────────┐  ┌─────────────────────┐  ┌──────────────┐   │
 │   │ Smoke Shader Canvas │  │  Liquid Metal Logo  │  │  Lenis Scroll│   │
@@ -59,22 +65,26 @@ When this happens, people make two critical errors:
 │                                                                        │
 │   ┌────────────────────────────────────────────────────────────────┐   │
 │   │ Direct Page Layout (Minimal Cards, Full-Width Edge Grids)       │   │
+│   │ - AI Engine Status: ● Gemma 3 4B / Fallback Provenance Badge   │   │
 │   │ - Hero / Interactive Liquid Logo & Tagline                     │   │
-│   │ - "Ask LastFix" Search + "DO NOT REPEAT" Diagnostic Engine     │   │
+│   │ - "Ask LastFix" Search + Evidence-Based Diagnosis Engine       │   │
+│   │ - "Why am I seeing this?" Expandable Evidence Trail Drawer     │   │
+│   │ - Multi-Fix Synthesizer (Most Recent + Historical Fixes)       │   │
 │   │ - "Log a Fix" Natural Language Extraction & Verification Modal │   │
 │   │ - "Fix Memory Timeline" & Incident History                     │   │
+│   │ - Empty State Banner: [Load Demo Memories] (disappears on data)│   │
 │   │ - Audio Micro-Feedback (UI SFX) & Driver.js Product Tour       │   │
 │   └────────────────────────────────────────────────────────────────┘   │
 └───────────────────────────────────┬────────────────────────────────────┘
-                                    │ REST API (JSON / CORS enabled)
+                                    │ Async REST API (httpx / JSON)
                                     ▼
 ┌────────────────────────────────────────────────────────────────────────┐
-│                    FASTAPI BACKEND (Python 3.10+)                      │
+│             FASTAPI ASYNCHRONOUS BACKEND (Python 3.10+)                │
 │                                                                        │
 │   ┌─────────────────┐   ┌──────────────────┐   ┌───────────────────┐   │
-│   │  API Endpoints  │   │  FTS5 Search     │   │  AI Orchestration │   │
-│   │  /incidents     │   │  Full-Text Query │   │  Prompts & Parser │   │
-│   │  /search        │   │  BM25 Ranking    │   │  Structured JSON  │   │
+│   │  API Endpoints  │   │  FTS5 Search     │   │  Async AI Engine  │   │
+│   │  /incidents     │   │  Full-Text Query │   │  httpx.AsyncClient│   │
+│   │  /search        │   │  BM25 Ranking    │   │  Gemma / Multi-API│   │
 │   └────────┬────────┘   └────────┬─────────┘   └─────────┬─────────┘   │
 └────────────┼─────────────────────┼───────────────────────┼─────────────┘
              │                     │                       │
@@ -86,24 +96,36 @@ When this happens, people make two critical errors:
 ```
 
 ### 2.1 Backend Specifications
-- **Framework**: FastAPI (Asynchronous Python 3.10+)
+- **Framework**: FastAPI (100% Asynchronous Python 3.10+)
 - **Server**: Uvicorn ASGI
-- **Database**: SQLite 3 with native FTS5 (Full-Text Search 5) virtual tables for lightning-fast lexical search. Database starts empty with an instant 'Load Demo Seed Data' button in the UI.
-- **ORM / Schemas**: SQLAlchemy 2.0+ (declarative models) & Pydantic v2 (data validation and strict JSON contracts).
-- **AI Engine (Hybrid Dynamic Architecture)**:
-  - **Local Ollama**: Local Gemma 3 4B (`gemma3:4b`) auto-detected at `http://localhost:11434`.
-  - **Multi-Cloud API Key Support**: In-app secure settings allowing user-provided API keys for:
+- **Asynchronous HTTP Client**: `httpx.AsyncClient` (replaces synchronous `requests` to guarantee non-blocking event loop execution during all outbound LLM calls).
+- **Database**: SQLite 3 with native FTS5 (Full-Text Search 5) virtual tables for BM25-ranked lexical matching. Database starts clean/empty.
+- **ORM / Schemas**: SQLAlchemy 2.0+ (declarative models) & Pydantic v2 (strict typed contracts).
+- **AI Engine (Hybrid Dynamic Architecture with Provenance)**:
+  - **Tier 1 (Preferred / Core)**: Local Gemma 3 4B (`gemma3:4b`) via Ollama on `http://localhost:11434`.
+  - **Tier 2 (Cloud Fallback / Remote Deployments)**: In-app settings supporting user API keys for:
     - **Google Gemini** (`generativelanguage.googleapis.com`)
     - **Groq** (`api.groq.com/openai/v1`)
-    - **Inception Labs Mercury** (`api.inceptionlabs.ai/v1` - diffusion LLMs like `mercury-2.5`)
+    - **Inception Labs Mercury** (`api.inceptionlabs.ai/v1` - fast diffusion LLM)
     - **OpenAI ChatGPT** (`api.openai.com/v1`)
     - **Anthropic Claude** (`api.anthropic.com/v1`)
-  - **Dynamic Model Auto-Discovery**: Automatically queries provider model listing endpoints (e.g. `GET /v1/models` or Gemini `v1beta/models`) to dynamically identify, auto-select, or display the newest models available on that key. Zero manual code updates needed when new models release.
-  - **Zero-Dependency Local Fallback**: When no API key is provided and Ollama is offline, a deterministic pattern-matching extraction & reasoning engine transparently steps in, ensuring the app is always 100% functional.
-- **Security / Session**: **No login required** (per user specification). Designed as a personal single-user or local system memory appliance.
+    - *Dynamic Model Auto-Discovery*: Automatically queries `/v1/models` or Gemini `v1beta/models` to discover and select the newest chat models on that key without requiring hardcoded updates.
+  - **Tier 3 (Local Deterministic Fallback)**: If no key is set and Ollama is unreachable, a local regex/pattern-based extraction and retrieval engine executes so the app never crashes or errors out.
+  - **Engine Transparency**: Every response explicitly badges its provenance:
+    - `Source: Local Gemma 3 4B (Ollama)`
+    - `Source: Cloud API ({provider} - {model})`
+    - `Source: Local Deterministic Engine (Ollama Offline)`
+  - **Ollama Status Banner**: If Gemma is unavailable, the UI clearly instructs:
+    `"Gemma is not running. Start Ollama and run: ollama run gemma3:4b"`
+- **Security / Session**: **No login required**. Personal single-user memory vault.
 
-### 2.2 Frontend Specifications
+### 2.2 Frontend Specifications & True Offline Resilience
 - **Build Tool**: Vite 6+ with React 18/19
+- **True Offline Self-Containment**:
+  - Bundled local/system font stack: `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", "Plus Jakarta Sans", sans-serif`.
+  - Zero Google Fonts or external CDN links.
+  - Zero remote images or external tracking scripts.
+  - Fully functional when the network adapter is completely disconnected.
 - **Styling**: Tailwind CSS + Curated Design System Tokens (Vanilla CSS variables)
 - **Animation & Physics**:
   - `motion` (Motion for React / Framer Motion) for layout morphing, spring transitions, and gestures.
@@ -135,7 +157,7 @@ Drawing from `ui-ux-pro-max-skill`, `emilkowalski/skills`, `pbakaus/impeccable`,
    - Text Secondary: `#8E8EA0` (Neutral stone grey)
    - Text Muted: `#525263` (Subtle metadata grey)
    - Accent Worked / Success: `#10B981` (Vibrant Emerald)
-   - Accent Failed / "DO NOT REPEAT": `#EF4444` (Vivid Crimson)
+   - Accent Failed / Previously Tried: `#EF4444` (Vivid Crimson)
    - Accent Possible / Unknown: `#F59E0B` (Warm Amber)
    - Interactive Accent: `#3B82F6` (Precision Electric Blue, inspired by ZYNC)
 5. **Fluid Smoke Background**: Undulating monochromatic WebGL smoke gradient with silky fluid displacement (colors: `#050508`, `#141419`, `#262630`, `#606070`, `#FFFFFF`).
@@ -143,7 +165,38 @@ Drawing from `ui-ux-pro-max-skill`, `emilkowalski/skills`, `pbakaus/impeccable`,
 
 ---
 
-## 4. Technical SEO, Production Hygiene & Web Standards
+## 4. Evidence-Based Diagnostic UX & Transparency
+
+### 4.1 Evidence Status (NO Fabricated AI Probabilities)
+LastFix rejects synthetic AI confidence scores (e.g. `Confidence: 92%`). Instead, it uses **Database Evidence Status**:
+- `CONFIRMED FIX`: The user explicitly recorded that this intervention resolved the problem.
+- `UNCONFIRMED`: The user attempted this action, but never verified whether it worked.
+
+### 4.2 Previously Tried vs. Permanent Prohibition
+The UI avoids overclaiming that an action is permanently invalid.
+- **Section Badge**: `PREVIOUS ATTEMPTS / EVIDENCE`
+- **Item Breakdown**:
+  - `✕ Restart laptop — Failed in this incident`
+  - `✓ Reset network adapter — Resolved the problem`
+- **Contextual Note**: *"Last time, restarting did not resolve the issue."* (Empirically accurate, acknowledges that future conditions or driver updates might change outcomes).
+
+### 4.3 Evidence Trail ("Why am I seeing this?")
+Every search result contains an expandable evidence drawer showing:
+- Incident ID & timestamp.
+- Inferred Context tags (`Device: Laptop`, `OS: Windows 11`, `Situation: After sleep`).
+- Exact lexical terms matched via SQLite FTS5:
+  `Matched: "Wi-Fi" • "network adapter" • "laptop" • "disappeared after sleep"`
+
+### 4.4 Handling Multiple Historical Fixes
+If a query matches multiple past incidents with different confirmed fixes:
+- Header: *"Found 3 related incidents in your history."*
+- Primary: *"Most recent confirmed fix: Reset network adapter (Incident #3 — Oct 3, 2026)"*
+- Secondary list: *"Other confirmed fixes: Restart router (Incident #2), Reinstall driver (Incident #1)"*
+- Honest reflection of user history rather than pretending there is a single universal truth.
+
+---
+
+## 5. Technical SEO, Production Hygiene & Web Standards
 
 - **Custom Domain Ready**: Fully decoupled relative asset paths, zero hardcoded localhost roots in production configs.
 - **Custom 404 Page**: Immersive, branded 404 experience with quick memory search and navigation back to safety.
@@ -156,7 +209,7 @@ Drawing from `ui-ux-pro-max-skill`, `emilkowalski/skills`, `pbakaus/impeccable`,
 - **Search Engine Assets**:
   - `sitemap.xml`
   - `robots.txt`
-  - `llms.txt` (Structured markdown documentation for AI web crawlers & agents)
+  - `llms.txt` (Structured documentation for AI models explaining LastFix's architecture and usage).
   - Custom SVG Favicon (`favicon.svg`) + `favicon.ico` + apple-touch-icon.
 - **Clean Production Bundle**:
   - Zero "Vite + React" default boilerplate text or logos.
@@ -166,52 +219,49 @@ Drawing from `ui-ux-pro-max-skill`, `emilkowalski/skills`, `pbakaus/impeccable`,
 
 ---
 
-## 5. Custom Source License & Attribution Policy
+## 6. Open Source Licensing (MIT License)
 
-This codebase is governed by a **Custom Commercial-Restricted Open Source License**:
-1. **Open for Personal & Educational Use**: Any user is free to view, clone, fork, use, test, contribute to, and modify the code.
-2. **Commercial Distribution Restriction**: Commercial use, redistribution, resale, or deployment as a paid or commercial service strictly requires prior written permission from the author:
-   - **Contact Email**: `vaibhavsoni280506@gmail.com`
-3. **Mandatory Attribution**: In any permitted commercial distribution or derivative project, visible credit must be given to **Vaibhav Soni** with a link to his GitHub profile:
-   - **Author GitHub**: [https://github.com/VaibhavSoni24](https://github.com/VaibhavSoni24)
-   - **Original Project**: **LastFix** (with a link to the original repository).
+To maintain standard Hacktoberfest 2026 eligibility and open-source compliance:
+- LastFix is licensed under the standard **MIT License**.
+- Full freedom to view, use, modify, distribute, and contribute.
+- Author attribution: **Vaibhav Soni** ([https://github.com/VaibhavSoni24](https://github.com/VaibhavSoni24)).
 
 ---
 
-## 6. Current Status & Inventory
+## 7. Current Status & Inventory
 
 | Component | Status | Notes |
 | :--- | :--- | :--- |
-| **`convo.txt` Ingestion** | **Completed** | Full 1,756 lines deeply parsed; concepts, tech stack, and schedule analyzed. |
-| **Workspace Git Repo** | **Initialized** | Empty master branch, ready for first structured commit. |
-| **Backend Architecture** | **Designed** | Schema, FTS5 queries, Gemma 3 prompt templates, and FastAPI routes planned. |
-| **Frontend Architecture** | **Designed** | WebGL smoke shader, liquid logo, dark UI tokens, and routing mapped. |
-| **SEO & Production Assets**| **Designed** | `robots.txt`, `sitemap.xml`, `llms.txt`, and metadata templates prepared. |
-| **`convo.txt` Cleanup** | **Pending** | Scheduled for deletion immediately upon this file's creation. |
+| **`convo.txt` Ingestion & Cleanup** | **Completed** | Full transcript analyzed, design refined, file removed from workspace. |
+| **Git Repository** | **Initialized** | Initial plan committed on master branch. |
+| **Backend Architecture** | **Refined** | Async `httpx`, SQLite FTS5, Gemma 3 4B Ollama + multi-cloud + fallback planned. |
+| **Frontend Architecture** | **Refined** | Self-contained offline assets, WebGL smoke shader, liquid logo, evidence drawer. |
+| **Human Story Grounding** | **Defined** | Built for Tilak Khatoria and Saumya Soni. |
+| **License Definition** | **Updated** | Standard MIT License selected. |
 
 ---
 
-## 7. Step-by-Step Implementation Roadmap
+## 8. Step-by-Step Implementation Roadmap
 
 *Note: Every single step concludes with a precise git commit instruction adhering to conventional commits.*
 
 ---
 
-### Step 1: Project Scaffolding, Git Configuration, License & `.gitignore`
+### Step 1: Project Scaffolding, MIT License & `.gitignore`
 - Initialize standard project directories: `backend/`, `frontend/`, and root documentation.
-- Create custom `LICENSE` file containing the explicit permissions and commercial restrictions for `vaibhavsoni280506@gmail.com` and `https://github.com/VaibhavSoni24`.
+- Create standard `LICENSE` (MIT License) attributing Vaibhav Soni.
 - Create clean, comprehensive `.gitignore` covering Python (`venv`, `__pycache__`, `*.db`), Node (`node_modules`, `dist`), IDE configs, and OS artifacts.
-- Create initial high-impact `README.md` with project badges, architecture overview, quick start, and Hacktoberfest 2026 problem statement.
+- Create initial high-impact `README.md` with project badges, architecture overview, quick start, the Tilak & Saumya friend story, and Hacktoberfest problem statement.
 > **Git Command:**  
-> `git add LICENSE .gitignore README.md Implementation.md && git commit -m "chore: initialize project scaffolding, license, and root documentation"`
+> `git add LICENSE .gitignore README.md Implementation.md && git commit -m "chore: initialize project scaffolding, MIT license, and root documentation"`
 
 ---
 
 ### Step 2: Backend Core — Database, Models & FTS5 Full-Text Engine
-- Set up `backend/requirements.txt` (`fastapi`, `uvicorn`, `sqlalchemy`, `pydantic`, `requests`).
+- Set up `backend/requirements.txt` (`fastapi`, `uvicorn`, `sqlalchemy`, `pydantic`, `httpx`).
 - Implement `backend/app/database.py`: SQLite engine, thread-safety, connection pooling, and automatic FTS5 virtual table initialization.
 - Implement `backend/app/models.py`:
-  - `Incident`: `id`, `title`, `problem`, `context`, `device_category`, `created_at`, `updated_at`.
+  - `Incident`: `id`, `title`, `problem`, `context`, `device`, `os`, `situation`, `subsystem`, `created_at`, `updated_at`.
   - `Attempt`: `id`, `incident_id`, `action`, `outcome` (`worked` / `failed` / `unknown`), `notes`, `step_order`, `created_at`.
 - Implement `backend/app/schemas.py`: Pydantic models for incoming natural language, verified incidents, search results, and API diagnostics.
 - Implement `backend/app/search.py`: Lexical extraction and FTS5 ranking queries with BM25 scoring for fast candidate retrieval.
@@ -220,25 +270,24 @@ This codebase is governed by a **Custom Commercial-Restricted Open Source Licens
 
 ---
 
-### Step 3: Backend AI Engine — Gemma 3 4B Ollama Integration & Fallback Mock
+### Step 3: Backend AI Engine — Asynchronous Gemma 3 4B Ollama & Dynamic Discovery
 - Implement `backend/app/prompts.py`:
-  - Prompt 1: Strict JSON incident extraction from raw, unstructured user speech/text.
+  - Prompt 1: Strict JSON incident extraction from raw, unstructured user speech/text (inferring `device`, `os`, `situation`, `subsystem` automatically).
   - Prompt 2: Search query expansion (turning user complaints into technical device/system terms).
-  - Prompt 3: Memory reasoning prompt synthesizing historical attempts, emphasizing "DO NOT REPEAT" and highlighting proven fixes.
-- Implement `backend/app/ai.py` (Hybrid Dynamic Provider Architecture):
+  - Prompt 3: Memory reasoning prompt synthesizing historical attempts, distinguishing previous failures from the confirmed fix, and identifying multiple historical solutions.
+- Implement `backend/app/ai.py` (Asynchronous Hybrid Dynamic Architecture using `httpx.AsyncClient`):
   - Local Ollama client (`http://localhost:11434`) targeting `gemma3:4b` with auto-healthcheck.
   - Unified Cloud Provider Adapters supporting user-supplied API keys:
     - **Google Gemini** (`https://generativelanguage.googleapis.com`)
     - **Groq** (`https://api.groq.com/openai/v1`)
-    - **Inception Labs Mercury** (`https://api.inceptionlabs.ai/v1` - fast diffusion LLM)
+    - **Inception Labs Mercury** (`https://api.inceptionlabs.ai/v1`)
     - **OpenAI ChatGPT** (`https://api.openai.com/v1`)
     - **Anthropic Claude** (`https://api.anthropic.com/v1`)
-  - **Dynamic Model Discovery Engine**:
-    - Queries `/v1/models` (or Gemini's `v1beta/models`) to automatically list, filter, and select the latest capable model for any valid key without hardcoding or requiring code updates.
-  - **Resilient Zero-Dependency Local Fallback Engine**:
-    - Automatically activates if no API key is provided and Ollama is unreachable. Performs structured extraction and memory synthesis using local deterministic pattern matching, ensuring 100% zero-crash operation under all conditions.
+  - **Dynamic Model Discovery Engine**: Queries `/v1/models` or Gemini `v1beta/models` to discover and select the newest capable chat model for any valid key without hardcoded lists.
+  - **Resilient Zero-Dependency Local Fallback Engine**: Transparent deterministic pattern-matching engine activating when Ollama is offline and no API key is set.
+  - Explicit provenance tagging on every response (`Local Gemma 3 4B`, `Cloud API`, or `Local Fallback`).
 > **Git Command:**  
-> `git add backend/app/ai.py backend/app/prompts.py && git commit -m "feat(backend): implement hybrid dynamic AI engine with auto-model discovery and local fallback"`
+> `git add backend/app/ai.py backend/app/prompts.py && git commit -m "feat(backend): implement async multi-provider AI engine with dynamic discovery and provenance"`
 
 ---
 
@@ -246,31 +295,35 @@ This codebase is governed by a **Custom Commercial-Restricted Open Source Licens
 - Implement `backend/app/main.py`:
   - FastAPI app instance with CORS middleware (permitting Vite frontend).
   - Endpoints:
-    - `POST /api/incidents/extract`: Raw text to structured preview.
+    - `POST /api/incidents/extract`: Raw text to structured preview with inferred context.
     - `POST /api/incidents`: Commit verified incident + attempts to SQLite.
-    - `GET /api/incidents`: Paginated list of incidents with counts and outcomes.
+    - `GET /api/incidents`: Paginated list of incidents with counts, context tags, and outcomes.
     - `GET /api/incidents/{id}`: Detailed timeline for an incident.
     - `DELETE /api/incidents/{id}`: Delete an incident (privacy compliance).
-    - `POST /api/search`: Query understanding + FTS5 retrieval + AI reasoning.
+    - `POST /api/search`: Query understanding + FTS5 retrieval + AI reasoning + evidence trail.
     - `GET /api/models`: Dynamic model discovery endpoint for provider keys.
     - `POST /api/seed`: One-click endpoint to populate sample demo memories on demand.
     - `GET /api/health`: Ollama connectivity & database health check.
-- Create `backend/app/seed.py`: Seed dataset with 4 realistic incidents (Wi-Fi drop, external monitor detection failure, printer port issue, Git merge conflict).
-- Create automated test script `backend/test_api.py` validating incident creation, search retrieval, and "DO NOT REPEAT" logic.
+- Create `backend/app/seed.py`: 4 realistic demo incidents tailored to Tilak & Saumya:
+  1. Wi-Fi disappeared after sleep (Windows 11 Laptop — Fix: Reset Network Adapter).
+  2. External 4K monitor not detected over USB-C (macOS Desktop — Fix: Reconnect display adapter).
+  3. Windows printer offline in print spooler (Windows 11 Desktop — Fix: Re-add printer in Settings).
+  4. Git merge conflict cascade in node_modules (Linux/WSL — Fix: Reset lockfile and run npm install).
+- Create automated test script `backend/test_api.py` validating incident creation, search retrieval, evidence trail, and multiple-fix handling.
 > **Git Command:**  
 > `git add backend/app/main.py backend/app/seed.py backend/test_api.py && git commit -m "feat(backend): add complete REST API endpoints, on-demand seed action, and test suite"`
 
 ---
 
-### Step 5: Frontend Scaffolding, Design System Tokens & Base Theme
+### Step 5: Frontend Scaffolding, Self-Contained Offline Assets & Base Theme
 - Initialize modern Vite + React frontend in `frontend/`.
 - Configure `tailwind.config.js` and `src/index.css` with dark theme design tokens:
   - Custom colors: `bg-base`, `bg-elevated`, `border-subtle`, `accent-worked`, `accent-failed`, `accent-blue`.
-  - Typography: Inter / Plus Jakarta Sans font imports.
+  - Self-contained system font stack: `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", "Plus Jakarta Sans", sans-serif` (zero external CDN requests).
   - Custom scrollbar styling, glassmorphism utilities, and smooth selection colors matching ZYNC.
 - Install core dependencies: `motion`, `three`, `@react-three/fiber`, `lenis`, `gsap`, `driver.js`, `lucide-react`, `canvas-confetti`.
 > **Git Command:**  
-> `git add frontend/ && git commit -m "feat(frontend): scaffold Vite React application with dark-mode design tokens and motion libraries"`
+> `git add frontend/ && git commit -m "feat(frontend): scaffold Vite React application with self-contained dark-mode design tokens and motion libraries"`
 
 ---
 
@@ -288,20 +341,25 @@ This codebase is governed by a **Custom Commercial-Restricted Open Source Licens
 ---
 
 ### Step 7: Core Application Views & Direct Page Layouts
-- **Navigation Bar**: Minimalistic floating glass header with status badge (Active AI engine & model), 'Load Demo Seed Data' button, audio mute toggle (sound enabled by default), API Key settings modal, and GitHub link.
+- **Navigation Bar**: Minimalistic floating glass header with AI Engine status badge (`● Gemma 3 4B — Connected` or offline prompt), audio mute toggle (enabled by default), API Key settings modal, and GitHub link.
 - **Hero & Search ("Ask LastFix")**:
-  - Direct page placement: Large, cinematic question bar ("Have I solved this before?").
-  - Instant memory retrieval panel with **"DO NOT REPEAT"** crimson alert banners for failed attempts.
-  - **"Last Successful Fix"** emerald highlight card with step-by-step resolution notes and confidence indicator.
+  - Direct page placement: Large question bar ("Have I solved this before?").
+  - Provenance badge (`Source: Local Gemma 3 4B`).
+  - **"Last Successful Fix"** emerald highlight card with evidence status (`CONFIRMED FIX`).
+  - **"Previously Tried"** crimson alert card with evidence-based note: *"Last time, restarting did not resolve the issue."*
+  - **"Why am I seeing this?"** expandable evidence trail drawer displaying matched lexical tokens and context tags.
+  - **Multi-Fix Synthesizer** displaying recent and historical fixes when multiple incidents match.
 - **"Log a Fix" Workflow**:
   - Natural language input textarea with voice/speech dictation placeholder or fast samples.
-  - Real-time AI extraction preview: User can review, toggle outcomes (`worked` / `failed`), edit steps, and save directly to local memory.
+  - Real-time AI extraction preview: User reviews inferred context (`device`, `os`, `situation`), toggles outcomes (`worked` / `failed`), edits steps, and saves to memory.
 - **"Fix Timeline & History"**:
-  - Full-width chronological data view with device tags, timestamps, and interactive expansion for full attempt logs.
-  - One-click 'Load Demo Seed Data' trigger if the database is currently empty.
+  - Full-width chronological data view with context badges, timestamps, and interactive expansion for full attempt logs.
+  - **Empty State Banner**: When 0 incidents exist, displays:
+    `"No memories yet. Want to explore LastFix? [Load Demo Memories]"`
+    (Disappears cleanly once any incidents exist).
   - Instant deletion/privacy controls per incident.
 > **Git Command:**  
-> `git add frontend/src/pages/ frontend/src/components/ && git commit -m "feat(frontend): implement hero search, DO NOT REPEAT diagnosis, and fix logging workflows"`
+> `git add frontend/src/pages/ frontend/src/components/ && git commit -m "feat(frontend): implement hero search, evidence-based diagnosis, and fix logging workflows"`
 
 ---
 
@@ -309,8 +367,9 @@ This codebase is governed by a **Custom Commercial-Restricted Open Source Licens
 - Integrate `lenis` for smooth momentum scrolling across the entire page.
 - Add `driver.js` interactive walkthrough tour guiding users through:
   1. The "Ask LastFix" memory search.
-  2. The "DO NOT REPEAT" safety mechanism.
-  3. The "Log a Fix" AI extraction engine.
+  2. The evidence-based "Previously Tried" section.
+  3. The "Why am I seeing this?" evidence drawer.
+  4. The "Log a Fix" natural language extraction engine.
 - Implement tactile UI sound effects (`src/utils/audio.js`) for button clicks, successful fix highlights, and search completion (enabled by default with instant navbar mute toggle).
 - Add micro-animations using `motion`: staggered card reveals, outcome status toggle springs, and hover state transitions.
 > **Git Command:**  
@@ -337,24 +396,6 @@ This codebase is governed by a **Custom Commercial-Restricted Open Source Licens
   - Configure manual chunk splitting for `three`, `gsap`, and `motion` to maintain lean chunk sizes.
 - Run end-to-end integration tests between frontend, backend, and database.
 - Validate responsive layouts across mobile (375px), tablet (768px), laptop (1280px), and ultrawide (1920px+).
-- Update `README.md` with final screenshots, architecture diagrams, run commands, and demonstration guide for Hacktoberfest judges.
+- Update `README.md` with final screenshots, architecture diagrams, run commands, the Tilak & Saumya story, and demonstration guide for Hacktoberfest judges.
 > **Git Command:**  
 > `git add vite.config.js README.md && git commit -m "chore: optimize production build bundles, finalize documentation, and complete verification"`
-
----
-
-## 8. User Confirmations & Technical Resolutions
-
-All architectural clarifications have been aligned with the user:
-1. **Hybrid AI Engine with Dynamic Auto-Discovery (CONFIRMED)**:
-   - **Local Ollama first**: Local Gemma 3 4B (`gemma3:4b`).
-   - **Cloud Providers**: Gemini, Groq, Inception Labs Mercury, OpenAI, Anthropic Claude.
-   - **Dynamic Model Auto-Discovery**: Automatically queries `/v1/models` (or Gemini's model catalog) using the provided key to dynamically discover and pick the latest capable model without requiring future manual updates or hardcoded model lists.
-   - **Deterministic Fallback**: If no key is entered and Ollama is not active, a local zero-dependency deterministic engine parses text and generates responses without failure.
-2. **Database State (CONFIRMED)**:
-   - Starts completely clean/empty on first launch.
-   - A sleek, one-click **"Load Demo Seed Data"** action is available in the UI navigation bar and history view so reviewers/evaluators can populate the 4 realistic troubleshooting cases in one second.
-3. **UI Sound Effects (CONFIRMED)**:
-   - Tactile audio micro-feedback (`uisfx` style) is **enabled by default** with a prominent, floating toggle in the navbar to mute/unmute instantly.
-4. **No Login Requirement (CONFIRMED)**:
-   - Zero authentication friction, no user accounts or passwords required. Runs as a personal memory vault.
