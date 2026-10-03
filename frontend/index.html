@@ -1,12 +1,63 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>frontend</title>
+    <title>LastFix — Personal Troubleshooting Memory | "You fixed it before. You just forgot how."</title>
+    
+    <meta name="description" content="LastFix remembers what actually fixed your computer, hardware, and coding glitches. It tracks what you tried, what failed, and what worked—so you never start troubleshooting from zero." />
+    <meta name="keywords" content="troubleshooting, memory, developer tools, hardware fix, wifi fix, display fix, gemma, ollama, local ai, hacktoberfest 2026" />
+    <meta name="author" content="Vaibhav Soni" />
+    <meta name="theme-color" content="#08080C" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://lastfix.app/" />
+
+    <!-- Favicon & Brand Icons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/logo.svg" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lastfix.app/" />
+    <meta property="og:title" content="LastFix — You fixed it before. You just forgot how." />
+    <meta property="og:description" content="A personal troubleshooting memory system powered by local open-weight AI (Gemma 3 4B). Remembers your exact failed attempts and confirmed fixes." />
+    <meta property="og:image" content="https://lastfix.app/logo.svg" />
+    <meta property="og:site_name" content="LastFix" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://lastfix.app/" />
+    <meta name="twitter:title" content="LastFix — Personal Troubleshooting Memory" />
+    <meta name="twitter:description" content="You fixed it before. You just forgot how. Remembers your exact failed attempts and confirmed fixes." />
+    <meta name="twitter:image" content="https://lastfix.app/logo.svg" />
+    <meta name="twitter:creator" content="@VaibhavSoni24" />
+
+    <!-- Schema.org JSON-LD Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "LastFix",
+        "headline": "Personal Troubleshooting Memory System",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Web, Windows, macOS, Linux",
+        "description": "Remembers what actually fixed your hardware and software glitches, warning against repeating failed attempts.",
+        "author": {
+          "@type": "Person",
+          "name": "Vaibhav Soni",
+          "url": "https://github.com/VaibhavSoni24"
+        },
+        "license": "https://opensource.org/licenses/MIT",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
   </head>
-  <body>
+  <body class="bg-[#08080C] text-[#EDEDF2] antialiased selection:bg-blue-500/30 selection:text-white">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

@@ -1,0 +1,17 @@
+# LastFix
+> "You fixed it before. You just forgot how."
+
+LastFix is an empirical personal troubleshooting memory system powered by local open-weight AI (Gemma 3 4B via Ollama) and SQLite FTS5.
+It stores the exact steps users tried when troubleshooting computer, hardware, network, and coding issues, distinguishing failed attempts from the confirmed fix.
+
+## Core Capabilities
+- Natural Language Extraction: Converts unstructured incident descriptions into ordered attempts with explicit outcomes ("worked", "failed", "unknown").
+- Context Deduction: Infers device, operating system, situation trigger, and subsystem.
+- Evidence-Based Diagnostic Recall: Surfaces previously failed attempts with warnings ("Last time, this did not resolve the issue") and highlights the confirmed fix.
+- True Offline Resilience: Self-contained frontend bundle and local Ollama inference guarantee total offline functionality and privacy.
+
+## Authors & Origin
+- Created by Vaibhav Soni (https://github.com/VaibhavSoni24)
+- Hacktoberfest 2026 "Build for a Friend" Challenge
+- Inspired by recurring troubleshooting headaches faced by Tilak Khatoria and Saumya Soni.
+- Licensed under the MIT License.
