@@ -14,7 +14,7 @@
 
 ## 📺 Live Demo Walkthrough
 
-[![LastFix Demo Video](https://img.youtube.com/vi/QkWXPwysdhc/maxresdefault.jpg)](https://youtu.be/QkWXPwysdhc)
+[![LastFix Demo Video](https://img.youtube.com/vi/QkWXPwysdhc/hqdefault.jpg)](https://youtu.be/QkWXPwysdhc)
 
 > 🔗 **Watch the full walkthrough on YouTube**: [https://youtu.be/QkWXPwysdhc](https://youtu.be/QkWXPwysdhc)
 
