@@ -5,9 +5,18 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Hacktoberfest 2026](https://img.shields.io/badge/Hacktoberfest-2026-FF8800.svg)](https://dev.to/challenges/hacktoberfest-weekend-2026-10-01)
+[![Demo Video](https://img.shields.io/badge/Demo%20Video-YouTube-FF0000.svg)](https://youtu.be/QkWXPwysdhc)
 [![AI Engine](https://img.shields.io/badge/AI%20Engine-Gemma%203%204B-4285F4.svg)](https://ollama.com/library/gemma3)
 [![FastAPI](https://img.shields.io/badge/Backend-FastAPI%20%2B%20SQLite%20FTS5-009688.svg)](https://fastapi.tiangolo.com)
 [![React](https://img.shields.io/badge/Frontend-React%20%2B%20Vite%20%2B%20Tailwind-61DAFB.svg)](https://vitejs.dev)
+
+---
+
+## 📺 Live Demo Walkthrough
+
+[![LastFix Demo Video](https://img.youtube.com/vi/QkWXPwysdhc/maxresdefault.jpg)](https://youtu.be/QkWXPwysdhc)
+
+> 🔗 **Watch the full walkthrough on YouTube**: [https://youtu.be/QkWXPwysdhc](https://youtu.be/QkWXPwysdhc)
 
 ---
 
